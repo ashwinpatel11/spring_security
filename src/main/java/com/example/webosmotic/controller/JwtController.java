@@ -11,7 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,27 +30,20 @@ public class JwtController {
     private UserService userService;
 
     @PostMapping("/token")
-    public ResponseEntity<?> generateToken(@RequestBody JwtRequest jwtRequest){
+    public ResponseEntity<?> generateToken(@RequestBody JwtRequest jwtRequest) {
         try {
-            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(jwtRequest.getEmail(),jwtRequest.getPassword()));
-        }
-        catch (UsernameNotFoundException e){
+            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(jwtRequest.getEmail(), jwtRequest.getPassword()));
+        } catch (UsernameNotFoundException e) {
+            e.printStackTrace();
+        } catch (BadCredentialsException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        catch (BadCredentialsException e){
-            e.printStackTrace();
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-      // Employee employee= employeeService.getEmployee(jwtRequest.getEmail(),jwtRequest.getPassword());
-      //  if(employee!=null) {
-            MyUser userDetails = (MyUser) customUserDetailService.loadUserByUsername(jwtRequest.getEmail());
-            String token = jwtUtil.generateToken(userDetails);
-            System.out.println("Bearer " + token);
-            return ResponseEntity.ok(new JwtResponse(token));
-       /* }
-        throw new UsernameNotFoundException("user is not present");*/
+        MyUser userDetails = (MyUser) customUserDetailService.loadUserByUsername(jwtRequest.getEmail());
+        String token = jwtUtil.generateToken(userDetails);
+        System.out.println("Bearer " + token);
+        return ResponseEntity.ok(new JwtResponse(token));
 
     }
 }

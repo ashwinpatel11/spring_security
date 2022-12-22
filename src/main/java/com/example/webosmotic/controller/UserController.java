@@ -18,9 +18,11 @@ public class UserController {
 
     @GetMapping("/test")
     public String test(){
-
+        String name=null;
+        name.length();
         return "hello";
     }
+
 
     @PostMapping("/addUser")
     public User addUser(@RequestBody @Valid User user){

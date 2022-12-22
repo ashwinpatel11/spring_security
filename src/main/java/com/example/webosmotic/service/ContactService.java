@@ -23,7 +23,6 @@ public class ContactService {
         contact.setPid(jwtUtil.getUid());
         return contactRepository.save(contact);
     }
-
     public Contact getContactById(Long id) {
         return contactRepository.findById(id).get();
     }

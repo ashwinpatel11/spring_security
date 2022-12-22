@@ -1,11 +1,9 @@
 package com.example.webosmotic.entity;
 
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
-import java.util.Set;
 
 public class MyUser implements UserDetails {
 
@@ -36,7 +34,7 @@ public class MyUser implements UserDetails {
 
     @Override
     public String getPassword() {
-        return  password;
+        return password;
     }
 
     @Override

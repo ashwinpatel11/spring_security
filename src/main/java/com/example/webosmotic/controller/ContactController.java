@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
-@Api(tags="Contact")
+@Api(tags = "Contact")
 @RestController
 public class ContactController {
 
@@ -18,33 +18,34 @@ public class ContactController {
     private ContactService contactService;
 
     @GetMapping("/testcontact")
-    public String test(){
-
+    public String test() {
         return "hello cobn";
     }
 
     @PostMapping("/addContact")
-    public Contact addContact(@RequestBody @Valid Contact contact){
+    public Contact addContact(@RequestBody @Valid Contact contact) {
         return contactService.addContact(contact);
     }
+
     @GetMapping("/getContact/{id}")
-    public Contact getContactById(@PathVariable Long id){
-       return contactService.getContactById(id);
+    public Contact getContactById(@PathVariable Long id) {
+        return contactService.getContactById(id);
     }
 
     @GetMapping("/getContacts")
-    public List<Contact> getAllUsers(){
+    public List<Contact> getAllUsers() {
         return contactService.getContacts();
     }
+
     @PutMapping("/updateContact")
-    public Contact updateUser(@RequestBody Contact contact){
+    public Contact updateUser(@RequestBody Contact contact) {
         return contactService.updateContact(contact);
     }
 
     @DeleteMapping("/deleteContact/{id}")
-    public String deleteContact(@PathVariable Long id){
+    public String deleteContact(@PathVariable Long id) {
         contactService.getContactById(id);
-         return "contact deleted";
+        return "contact deleted";
     }
 
 

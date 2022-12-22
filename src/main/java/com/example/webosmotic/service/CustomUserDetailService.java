@@ -21,11 +21,10 @@ public class CustomUserDetailService implements UserDetailsService {
        User user = userService.getUser(email);
 
         if (user !=null) {
-          //  return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(),new ArrayList<>());
-              return new MyUser(user.getPid(),user.getEmail(),user.getPassword(),new ArrayList<>());
+            return new MyUser(user.getPid(),user.getEmail(),user.getPassword(),new ArrayList<>());
         } else {
                  throw new BadCredentialsException("user not found");
-                //return new User("","",new ArrayList<>());
+
             }
 
 

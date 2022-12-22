@@ -21,7 +21,7 @@ public class Contact {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long cid;
 
-    @Email(regexp = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$",message = "invalid email")
+    @Email(regexp = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$", message = "invalid email")
     private String email;
 
     @NotBlank(message = "first name can not blank")
@@ -32,7 +32,7 @@ public class Contact {
     @Size(min = 2, max = 10, message = "last name should have at least 3 to 10 characters")
     private String lastName;
 
-    @Size(min = 10,max=10, message = "mob number should have 10 digit")
+    @Size(min = 10, max = 10, message = "mob number should have 10 digit")
     private String mob;
 
     private Long pid;

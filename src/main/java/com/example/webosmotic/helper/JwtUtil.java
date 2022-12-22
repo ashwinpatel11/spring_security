@@ -18,12 +18,13 @@ public class JwtUtil {
     private String SECRET_KEY = "ashwinpatel";
 
     private Long uid;
+
     public String extractUsername(String token) {
-        uid=Long.valueOf(extractClaim(token, Claims::getId));
+        uid = Long.valueOf(extractClaim(token, Claims::getId));
         return extractClaim(token, Claims::getSubject);
     }
 
-    public Long getUid(){
+    public Long getUid() {
         return uid;
     }
 
@@ -47,19 +48,19 @@ public class JwtUtil {
     public String generateToken(MyUser userDetails) {
         Map<String, Object> claims = new HashMap<>();
 
-        return createToken(claims, userDetails.getUsername(),userDetails.getId());
+        return createToken(claims, userDetails.getUsername(), userDetails.getId());
     }
 
-    private String createToken(Map<String, Object> claims, String subject,Long id) {
+    private String createToken(Map<String, Object> claims, String subject, Long id) {
 
         return Jwts.builder().setClaims(claims).setSubject(subject).setId(id.toString()).setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60*3 ))
+                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 24))
                 .signWith(SignatureAlgorithm.HS256, SECRET_KEY).compact();
     }
 
     public Boolean validateToken(String token, UserDetails userDetails) {
         final String username = extractUsername(token);
-        System.out.println(isTokenExpired("validity : "+token));
+        System.out.println(isTokenExpired("validity : " + token));
         return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
     }
 }
