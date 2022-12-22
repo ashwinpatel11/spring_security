@@ -33,18 +33,18 @@ public class ContactController {
     }
 
     @GetMapping("/getContacts")
-    public List<Contact> getAllUsers() {
+    public List<Contact> getAllContact() {
         return contactService.getContacts();
     }
 
     @PutMapping("/updateContact")
-    public Contact updateUser(@RequestBody Contact contact) {
+    public Contact updateContact(@RequestBody Contact contact) {
         return contactService.updateContact(contact);
     }
 
     @DeleteMapping("/deleteContact/{id}")
     public String deleteContact(@PathVariable Long id) {
-        contactService.getContactById(id);
+        contactService.deleteContact(id);
         return "contact deleted";
     }
 
