@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+@RequestMapping("/v1")
 @Api(tags = "Contact")
 @RestController
 public class ContactController {
@@ -27,7 +28,7 @@ public class ContactController {
         return contactService.addContact(contact);
     }
 
-    @GetMapping("/getContact/{id}")
+    @GetMapping("/getContact")
     public Contact getContactById(@PathVariable Long id) {
         return contactService.getContactById(id);
     }

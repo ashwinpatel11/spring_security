@@ -15,7 +15,6 @@ public class ContactService {
 
     @Autowired
     private ContactRepository contactRepository;
-
     @Autowired
     private JwtUtil jwtUtil;
     public Contact addContact(Contact contact) {
@@ -26,15 +25,12 @@ public class ContactService {
     public Contact getContactById(Long id) {
         return contactRepository.findById(id).get();
     }
-
     public List<Contact> getContacts() {
         return contactRepository.findByPid(jwtUtil.getUid());
     }
-
     public void deleteContact(Long id) {
         contactRepository.deleteById(id);
     }
-
     public Contact updateContact(Contact contact) {
         contact.setPid(jwtUtil.getUid());
         return contactRepository.save(contact);

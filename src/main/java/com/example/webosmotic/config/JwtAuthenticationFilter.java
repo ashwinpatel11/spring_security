@@ -21,13 +21,14 @@ import java.io.IOException;
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
     @Autowired
     private JwtUtil jwtUtil;
-    private Long userId;
     @Autowired
     private CustomUserDetailService customUserDetailService;
 
     @Override
     protected void doFilterInternal(HttpServletRequest req, HttpServletResponse resp, FilterChain filterChain) throws ServletException, IOException {
-
+        // System.out.println(req.getRequestURI());
+        //  if (!req.getRequestURI().contains("swagger")&&!req.getRequestURI().contains("favicon")) {
+        System.out.println(req.getRequestURI());
         String reqTokenHeader = req.getHeader("Authorization");
         String email = null;
         String jwtToken = null;
@@ -41,7 +42,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 } catch (ExpiredJwtException e) {
                     e.printStackTrace();
                 }
-                //security
+
                 MyUser userDetails = (MyUser) customUserDetailService.loadUserByUsername(email);
                 // setUserId(userDetails.getId());
                 if (email != null && SecurityContextHolder.getContext().getAuthentication() == null) {
@@ -62,8 +63,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             }
         } /*else {
             System.out.println("token is null");
-
         }*/
         filterChain.doFilter(req, resp);
     }
+    // filterChain.doFilter(req, resp);
+
 }
