@@ -1,8 +1,8 @@
-package com.example.webosmotic.controller;
+package com.example.security.controller;
 
 
-import com.example.webosmotic.entity.Contact;
-import com.example.webosmotic.service.ContactService;
+import com.example.security.entity.Contact;
+import com.example.security.service.ContactService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

@@ -1,4 +1,4 @@
-package com.example.webosmotic.model;
+package com.example.security.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

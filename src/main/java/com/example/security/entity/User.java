@@ -1,4 +1,4 @@
-package com.example.webosmotic.entity;
+package com.example.security.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,11 +27,11 @@ public class User {
     private String email;
 
     @NotBlank
-    @Size(min = 5, max = 20, message = "password can not be blank")
+    @Size(min = 5, max = 100, message = "password character must be 5 to 100 blank")
     private String password;
 
     @NotBlank(message = "name can not blank")
-    @Size(min = 2, max = 10, message = "user name should have at least 2 to 10 characters")
+    @Size(min = 5, max = 100, message = "user name should have at least 2 to 100 characters")
     private String name;
 
 

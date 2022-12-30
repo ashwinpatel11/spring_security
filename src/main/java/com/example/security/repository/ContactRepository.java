@@ -1,6 +1,6 @@
-package com.example.webosmotic.repository;
+package com.example.security.repository;
 
-import com.example.webosmotic.entity.Contact;
+import com.example.security.entity.Contact;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

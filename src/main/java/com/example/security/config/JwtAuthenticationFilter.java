@@ -1,8 +1,8 @@
-package com.example.webosmotic.config;
+package com.example.security.config;
 
-import com.example.webosmotic.entity.MyUser;
-import com.example.webosmotic.helper.JwtUtil;
-import com.example.webosmotic.service.CustomUserDetailService;
+import com.example.security.entity.MyUser;
+import com.example.security.helper.JwtUtil;
+import com.example.security.service.CustomUserDetailService;
 import io.jsonwebtoken.ExpiredJwtException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -26,9 +26,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest req, HttpServletResponse resp, FilterChain filterChain) throws ServletException, IOException {
-        // System.out.println(req.getRequestURI());
-        //  if (!req.getRequestURI().contains("swagger")&&!req.getRequestURI().contains("favicon")) {
-        System.out.println(req.getRequestURI());
         String reqTokenHeader = req.getHeader("Authorization");
         String email = null;
         String jwtToken = null;

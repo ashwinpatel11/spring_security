@@ -1,4 +1,4 @@
-package com.example.webosmotic.entity;
+package com.example.security.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

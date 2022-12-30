@@ -1,13 +1,13 @@
-package com.example.webosmotic;
+package com.example.security;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class WebosmoticApplication {
+public class ContactMgtApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(WebosmoticApplication.class, args);
+		SpringApplication.run(ContactMgtApplication.class, args);
 	}
 
 }

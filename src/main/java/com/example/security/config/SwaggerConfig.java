@@ -1,4 +1,4 @@
-package com.example.webosmotic.config;
+package com.example.security.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

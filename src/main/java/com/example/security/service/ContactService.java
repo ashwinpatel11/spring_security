@@ -1,10 +1,9 @@
-package com.example.webosmotic.service;
+package com.example.security.service;
 
 
-import com.example.webosmotic.config.JwtAuthenticationFilter;
-import com.example.webosmotic.entity.Contact;
-import com.example.webosmotic.helper.JwtUtil;
-import com.example.webosmotic.repository.ContactRepository;
+import com.example.security.entity.Contact;
+import com.example.security.helper.JwtUtil;
+import com.example.security.repository.ContactRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,6 @@
-package com.example.webosmotic.helper;
+package com.example.security.helper;
 
-import com.example.webosmotic.entity.MyUser;
+import com.example.security.entity.MyUser;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

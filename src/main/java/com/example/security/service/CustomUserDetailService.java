@@ -1,11 +1,11 @@
-package com.example.webosmotic.service;
+package com.example.security.service;
 
-import com.example.webosmotic.entity.MyUser;
-import com.example.webosmotic.entity.User;
+import com.example.security.entity.MyUser;
+import com.example.security.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -23,7 +23,7 @@ public class CustomUserDetailService implements UserDetailsService {
         if (user !=null) {
             return new MyUser(user.getPid(),user.getEmail(),user.getPassword(),new ArrayList<>());
         } else {
-                 throw new BadCredentialsException("user not found");
+                 throw new UsernameNotFoundException("user not found");
 
             }
 

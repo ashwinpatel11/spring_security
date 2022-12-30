@@ -1,4 +1,4 @@
-package com.example.webosmotic.entity;
+package com.example.security.entity;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
